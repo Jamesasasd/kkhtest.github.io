@@ -2,7 +2,7 @@
 
 let currentFeature = null;
 let noticelyr = null;
-const portalUrl = "https://portal.esrikr.com/portal/"
+const portalUrl = "https://portal.esrikr.com/portal/home"
 const itemID = "747b7cb14b784a57969bef8af921a5ff"
 
 function nta_addnotice(){
