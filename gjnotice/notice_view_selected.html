@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="notice.css">
+	<script src="https://js.arcgis.com/4.25/"></script>
+	<script src="jquery-3.6.1.js"></script>
+	<script src="notice.js"></script>	 
+	<script>
+		notice('notice_view_selected')
+	</script>
+	<title>공지사항</title>
+</head>
+<body>
+	<div>
+		<table class = "notice_view_selected" id = "ntv_notitbl">
+			<tr>
+			  <th>제목</th>
+			  <th colspan=4 style="text-align: left; width:300px;" id=ntvs_title></th>
+			  <th>공지일</th>
+			  <th id=ntvs_notidate>날짜</th>
+			</tr>
+		  <tr>
+		    <td id=ntvs_desc colspan=7 style="width:500px; height: 200px; overflow:hidden; work-break:normal; text-align: left; vertical-align: top; margin-top : 20px; border-bottom: 1px solid #ddd">
+		    </td>
+		  </tr>
+		  <tr>
+		  	<td style="text-align: right;">
+		  		<button style="height : 30px;  background: #42454c; border-color :#42454c; color : white; border-radius: 5px;" onclick="window.history.back()">목록으로</button>	
+		  	</td>
+		  </tr>
+		</table>
+		
+	</div>
+</div>
+</body>
+</html>

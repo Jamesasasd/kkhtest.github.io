@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="notice.css">
+	<script src="https://js.arcgis.com/4.25/"></script>
+	<script src="jquery-3.6.1.js"></script>
+	<script src="notice.js"></script>	 
+	<script>
+		notice('notice_admin')
+	</script>
+	<title>공지사항</title>
+</head>
+<body>
+	<div style = "margin-left: auto; margin-right: auto">
+		<button onclick="nta_newnoti()">글쓰기</button>	
+		<button onclick="nta_deletefc_chk_func()">선택삭제</button>
+	</div>	
+	<table class = "notice_view" id = "nta_notitbl">
+	  <tr>
+	  	<!--<th>check</th>-->
+	  	<th>선택</th>
+	  	<th>제목</th>
+	    <th>공지사항</th>
+	    <th>작성일</th>
+	    <th>관리</th>
+	  </tr>
+	</table>
+	<div id = "pagination">
+	</div>
+	<div class="page_wrap">
+   <div class="page_nation" id = "page_num">
+  
+   </div>
+</body>
+</html>

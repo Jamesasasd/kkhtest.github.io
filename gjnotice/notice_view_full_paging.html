@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="notice.css">
+	<script src="https://js.arcgis.com/4.25/"></script>
+	<script src="jquery-3.6.1.js"></script>
+	<script src="notice.js"></script>	 
+	<script>
+		notice('notice_view_pagination')
+	</script>
+	<title>공지사항</title>
+</head>
+<body>
+	<div>
+		<table class = "notice_view" id = "ntv_notitbl">
+		  <tr>
+		  	<!--<th>check</th>-->
+		    <th>순번</th>
+		    <th style = "width : 40%">제목</th>
+		    <th>작성일</th>
+		  </tr>
+		</table>
+	</div>
+	<!--<button onclick="deletefc()">삭제</button>-->
+	<div id = "pagination">
+	</div>
+	<div class="page_wrap">
+   <div class="page_nation" id = "page_num">
+  
+   </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="notice.css">
+	<script src="https://js.arcgis.com/4.25/"></script>
+	<script src="jquery-3.6.1.js"></script>
+		<script src="notice.js"></script>	 
+	<script>
+		notice('notice_new')
+	</script>
+	<title>공지사항 작성</title>
+</head>
+<body>
+	<div id="ntn_head">
+		공지사항 작성
+	</div>
+	<div id = "ntn_form">
+		<div class = "ntn_content">
+			제목 
+		</div>
+		<div>
+			<input type = "text" maxlength ='20' id = "ntn_title" placeholder="제목을 입력하세요.">
+		</div>
+		<div  class = "ntn_content">
+			작성일
+		</div>
+		<div>
+			<input type="date" id="ntn_datepicker">
+		</div>
+		<div class = "ntn_content">
+			내용 
+		</div>
+		<div style = "white-space: normal;">
+			<textarea  id = "ntn_desc" style="white-space: pre-line;" placeholder="공지사항을 작성하세요." rows="8" cols="30"  maxlength="500"></textarea>
+		</div>
+		<button id = "ntn_bt" onclick="ntn_addnotice_func()">등록하기</button>
+		<button id = "ntn_bt" onclick="ntn_gotoadmin()">목록으로</button>
+</html>
