@@ -7,7 +7,7 @@ const portalUrl = "https://portal.esrikr.com/portal"
 const itemID = "093e629f7ab0462783da81b27d39306a"
 
 function nta_addnotice(){
-	alert('등록이 완료되었습니다.1')
+	alert('등록이 완료되었습니다.')
 	location.href='./notice_admin.html'
 } 
 
