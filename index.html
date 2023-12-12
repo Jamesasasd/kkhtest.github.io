@@ -1,12 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="notice.css">
+	<script src="https://js.arcgis.com/4.25/"></script>
+	<script src="jquery-3.6.1.js"></script>
+	<script type="text/javascript">
+	
+		let noticelyr = null;
+		const portalUrl = "https://portal.esrikr.com/portal/"
+		const itemID = "747b7cb14b784a57969bef8af921a5ff"
+		
+		function getNoticeLayer(esriConfig, FeatureLayer) {
+			esriConfig.portalUrl = portalUrl
+			const noticelyr = new FeatureLayer({
+				portalItem: {
+					id: itemID
+				}
+			});
+			return noticelyr;
+		}
+		
+		function notice(page) {
+			require([
+				"esri/layers/FeatureLayer","esri/rest/support/Query", "esri/config"
+				],
+				(FeatureLayer, Query, esriConfig) => {
+					if(noticelyr == null)
+					{
+						//esriConfig.portalUrl = "https://portal.esrikr.com/portal"
+						noticelyr = getNoticeLayer(esriConfig, FeatureLayer);
+					}
+					const queryParams = new Query({
+						outFields : "*",
+						where : "1=1",
+						orderByFields : "notidate desc"
+					})
+					try{
+						const urlStr = window.location.href	
+						const url = new URL(urlStr)
+						const urlParams = url.searchParams;
+						const editobjid = urlParams.get('hasland')
+						if(urlParams == undefined || urlParams =='' ){
+							alert('실패1');
+						}else{
+							alert('성공');
+						alert(urlParams);
+						}
+						
+					}catch(err){
+						alert('실패2');
+						alert(err.message); 
+					}
+				})
+		}
+
+		//등록하기 함수
+		function nta_addnotice(){
+			alert('등록이 완료되었습니다.1')
+			location.href='./notice_admin.html'
+		} 
+
+		function ntn_addnotice_func() {
+			new Promise((resolve, reject) => {
+				ntn_addfc()
+				resolve(); 
+			})
+			.then(() => {
+				return new Promise((resolve, reject) => {
+				setTimeout(() => {
+					nta_addnotice();   
+					resolve();
+				}, 200);
+				});
+			})
+			.catch((err) => {
+				console.log('err ', err);
+			});
+		}
+		//추가하기
+		function ntn_addfc() {
+			require([
+				"esri/layers/FeatureLayer","esri/rest/support/Query", "esri/config", "esri/Graphic"
+				],
+				(FeatureLayer, Query, esriConfig, Graphic) => {
+					//날짜
+					// const getdate = new Date(document.getElementById('ntn_datepicker').value).getTime()
+
+					const attributes = {};
+					attributes["title"] =  document.getElementById('ntn_title').value;
+					// attributes["notidate"] = getdate;
+					attributes["noti_desc"] = document.getElementById('ntn_desc').value;
+					if(noticelyr == null)
+					{
+						noticelyr = getNoticeLayer(esriConfig, FeatureLayer);
+					}
+					
+					const addFeature = new Graphic({
+						attributes : attributes
+					})
+
+					noticelyr.applyEdits({
+						addFeatures : [addFeature]
+					})
+				})
+		}
+
+		</script>
+	<title>공지사항</title>
 </head>
 <body>
-  <p>Hello, World!</p>
+	<button onclick="notice()">버튼</button>
+	
+	<div id="ntn_head">
+		공지사항 등록
+	</div>
+	<div id = "ntn_form">
+		<div class = "ntn_content">
+			제목 
+		</div>
+		<div>
+			<input type = "text" maxlength ='20' id = "ntn_title" placeholder="제목을 입력하세요.">
+		</div>
+		<div class = "ntn_content">
+			내용 
+		</div>
+		<div style = "white-space: normal;">
+			<textarea  id = "ntn_desc" style="white-space: pre-line;" placeholder="공지사항을 작성하세요." rows="8" cols="30"  maxlength="500"></textarea>
+		</div>
+		<button id = "ntn_bt" onclick="ntn_addnotice_func()">등록</button>
 </body>
 </html>
