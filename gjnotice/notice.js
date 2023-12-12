@@ -3,7 +3,7 @@
 let currentFeature = null;
 let noticelyr = null;
 const portalUrl = "https://portal.esrikr.com/portal/home"
-const itemID = "747b7cb14b784a57969bef8af921a5ff"
+const itemID = "c80326e50f9e4e4f920231622cf9d992"
 
 function nta_addnotice(){
 	alert('등록이 완료되었습니다.1')
