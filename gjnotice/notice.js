@@ -4,7 +4,7 @@ let currentFeature = null;
 let noticelyr = null;
 //const portalUrl = "https://portal.esrikr.com/portal/home"
 const portalUrl = "https://portal.esrikr.com/portal"
-const itemID = "093e629f7ab0462783da81b27d39306a"
+const itemID = "747b7cb14b784a57969bef8af921a5ff"
 
 function nta_addnotice(){
 	alert('등록이 완료되었습니다.')
